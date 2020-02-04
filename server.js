@@ -24,6 +24,9 @@ app.use(express.static("public"));
 
 mongoose.connect("mongodb://localhost/FitToScrape", { useNewUrlParser: true });
 
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/FitToScrape";
+
+mongoose.connect(MONGODB_URI);
 
 app.get("/scrape", function(req, res) {
 
